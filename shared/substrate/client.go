@@ -127,7 +127,6 @@ func (c *Client) LatestBlock() (uint64, error) {
 }
 
 func (c *Client) MintErc721(tokenId *big.Int, metadata []byte, recipient *signature.KeyringPair) error {
-	fmt.Printf("Mint info: account %x amount: %x meta: %x\n", recipient.PublicKey, types.NewU256(*tokenId), types.Bytes(metadata))
 	return SubmitSudoTx(c, Erc721MintMethod, types.NewAccountID(recipient.PublicKey), types.NewU256(*tokenId), types.Bytes(metadata))
 }
 

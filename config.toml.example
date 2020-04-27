@@ -4,7 +4,7 @@ type = "ethereum"
 id = 0
 endpoint = "ws://localhost:8545"
 from = "029b67ec8aba36421137e22d874a897f8aa2a47e2d479d772d96ca8c5744b5a95c"
-opts = { bridge = "0x3167776db165D8eA0f51790CA2bbf44Db5105ADF", erc20Handler = "0x3f709398808af36ADBA86ACC617FeB7F5B7B193E", genericHandler = "0x21605f71845f372A9ed84253d2D024B7B10999f4" }
+opts = { bridge = "0x3167776db165D8eA0f51790CA2bbf44Db5105ADF", erc20Handler = "0x3f709398808af36ADBA86ACC617FeB7F5B7B193E", erc721Handler = "0x21605f71845f372A9ed84253d2D024B7B10999f4", genericHandler = "0x21605f71845f372A9ed84253d2D024B7B10999f4" }
 
 [[chains]]
 name = "substrate"
