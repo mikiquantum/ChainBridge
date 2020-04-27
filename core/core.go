@@ -1,6 +1,7 @@
 // Copyright 2020 ChainSafe Systems
 // SPDX-License-Identifier: LGPL-3.0-only
 
+// Core provides a container for an arbitrary number of chains.
 package core
 
 import (

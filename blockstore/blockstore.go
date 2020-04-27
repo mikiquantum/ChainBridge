@@ -1,6 +1,7 @@
 // Copyright 2020 ChainSafe Systems
 // SPDX-License-Identifier: LGPL-3.0-only
 
+// This is used to persist block numbers to disk and retrieve them.
 package blockstore
 
 import (

@@ -40,7 +40,7 @@ name = "ethereum" # Human-readable name
 type = "ethereum" # Either "ethereum" or "substrate"
 id = 0            # Chain Id
 endpoint = "ws://host:port" # API endpoint
-from = "029b67ec8aba36421137e22d874a897f8aa2a47e2d479d772d96ca8c5744b5a95c" # Public key of desired key, not required for test keys
+from = "029b67ec8aba36421137e22d874a897f8aa2a47e2d479d772d96ca8c5744b5a95c" # Address of desired key, not required for test keys
 opts = {}         # Chain-specific configuration options (see below)
 ```
 

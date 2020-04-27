@@ -1,6 +1,7 @@
 // Copyright 2020 ChainSafe Systems
 // SPDX-License-Identifier: LGPL-3.0-only
 
+// This package contains all logic for executing bridging operations on ethereum chains.
 package ethereum
 
 import (
