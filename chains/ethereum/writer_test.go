@@ -71,7 +71,7 @@ func TestWriter_start_stop(t *testing.T) {
 func watchEvent(conn *Connection, subStr utils.EventSig) {
 	fmt.Printf("Watching for event: %s\n", subStr)
 	query := buildQuery(conn.cfg.bridgeContract, subStr, big.NewInt(0), nil)
-	eventSubscription, err := conn.subscribeToEvent(query)
+	eventSubscription, err := subscribeToEvent(conn, query)
 	if err != nil {
 		log15.Error("Failed to subscribe to finalization event", "err", err)
 	}
@@ -93,7 +93,7 @@ func watchEvent(conn *Connection, subStr utils.EventSig) {
 func routeMessageAndWait(t *testing.T, alice, bob *writer, m msg.Message, aliceErr, bobErr chan error) {
 	// Watch for executed event
 	query := buildQuery(alice.cfg.bridgeContract, utils.ProposalExecuted, big.NewInt(0), nil)
-	eventSubscription, err := alice.conn.subscribeToEvent(query)
+	eventSubscription, err := subscribeToEvent(alice.conn, query)
 	if err != nil {
 		log15.Error("Failed to subscribe to finalization event", "err", err)
 	}

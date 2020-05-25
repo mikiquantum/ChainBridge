@@ -25,7 +25,7 @@ func TestSubscribe(t *testing.T) {
 
 	q := eth.FilterQuery{}
 
-	_, err := l.conn.subscribeToEvent(q)
+	_, err := subscribeToEvent(conn, q)
 	if err != nil {
 		t.Fatal(err)
 	}

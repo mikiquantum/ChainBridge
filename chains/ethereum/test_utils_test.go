@@ -5,6 +5,8 @@ package ethereum
 
 import (
 	"fmt"
+	eth "github.com/ethereum/go-ethereum"
+	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"math/big"
 	"testing"
 	"time"
@@ -21,6 +23,11 @@ import (
 )
 
 const TestEndpoint = "ws://localhost:8545"
+
+type ActiveSubscription struct {
+	ch  <-chan ethtypes.Log
+	sub eth.Subscription // subscribe to specific events
+}
 
 var TestLogger = newTestLogger("test")
 var TestTimeout = time.Second * 10
@@ -72,6 +79,19 @@ func newLocalConnection(t *testing.T, cfg *Config) *Connection {
 	}
 
 	return conn
+}
+
+func subscribeToEvent(c *Connection, query eth.FilterQuery) (*ActiveSubscription, error) {
+	ch := make(chan ethtypes.Log)
+	sub, err := c.conn.SubscribeFilterLogs(c.ctx, query, ch)
+	if err != nil {
+		close(ch)
+		return nil, err
+	}
+	return &ActiveSubscription{
+		ch:  ch,
+		sub: sub,
+	}, nil
 }
 
 func deployTestContracts(t *testing.T, id msg.ChainId, kp *secp256k1.Keypair) *utils.DeployedContracts {
