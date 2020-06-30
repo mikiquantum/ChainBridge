@@ -42,6 +42,7 @@ func wrapHandler(hdl func(*cli.Context, *dataHandler) error) cli.ActionFunc {
 
 		return hdl(ctx, &dataHandler{datadir: datadir})
 	}
+	hello
 }
 
 // handleGenerateCmd generates a keystore for the accounts
